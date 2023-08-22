@@ -1,0 +1,42 @@
+{% extends 'global/base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>Registrar nova posição</h1>
+
+  <div class="div-registro">
+    <form class="form-registro" method="POST" action="{% url 'criar_local' %}">
+      {% csrf_token %}
+
+      {% for field in genero %}
+        {{ field }}
+      {% endfor %}
+      {% comment %} <input type="submit" value="Filtrar"> {% endcomment %}
+
+      {% if especies %}
+      <form method="GET" action="{% url 'mapa' %}">
+        <select name="especie">
+          <option value="">Selecione uma espécie</option>
+          {% for especie in especies %}
+            <option value="{{ especie.id }}" >{{ especie }}</option>
+          {% endfor %}
+        </select>
+        <input type="submit" value="Filtrar">
+      </form>
+      {% endif %}
+
+      {% comment %} <p>{{form.especie.label}} {{ form.especie }} <a href="">Add</a></p> {% endcomment %}
+
+
+      <p>{{form.latitude.label}} {{ form.latitude }}</p>
+      <p>{{form.longitude.label}} {{ form.longitude }}</p>
+      
+      <button type="submit">Criar</button>
+    </form>
+  </div>
+
+{% endblock content %}
+
+
+
+

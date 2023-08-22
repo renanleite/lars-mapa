@@ -1,0 +1,15 @@
+{% extends 'global/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div tabindex="0" class="container content" onfocus="closeSidebar()" id="content">
+        <h1>Bem-vindo ao site LARC MAPS</h1>
+        <img src="{% static 'images/logo.png' %}" alt="Logo" class="img_logo_header">
+        <p class="centered">Dedicado ao estudo e compreensão da distribuição geográfica dos diferentes gêneros de aranhas pela america latina.</p>
+        <p class="centered">Cada gênero possui uma distribuição geográfica específica, influenciada por diversos fatores, como o clima, a disponibilidade de recursos e a competição com outras espécies.</p>
+        <p class="centered">A compreensão da distribuição geográfica das diferentes espécies de aranhas é importante para a ecologia e a conservação desses animais, pois permite identificação de áreas críticas para a preservação e monitoramento das espécies ameaçadas.</p>
+        <p class="centered">Em nosso mapa interativo, você pode selecionar um gênero e visualizar sua distribuição geográfica pelo mundo. Explore a fascinante diversidade dos gêneros conosco!</p>
+        <a class="button img_logo_header" href="{% url 'mapa' %}">Ver mapa</a>
+    </div>
+{% endblock content %}

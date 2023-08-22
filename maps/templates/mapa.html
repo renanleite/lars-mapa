@@ -1,0 +1,50 @@
+{% extends 'global/base.html' %}
+{% load leaflet_tags %}
+{% load static %}
+
+{% block content %}
+  <div id="map" style="height: 70%; width: 65%; margin: auto;"></div>
+
+  {% leaflet_js %}
+  {% leaflet_css %}
+
+  <form method="GET" action="{% url 'mapa' %}" class="dropdown">
+    {% for field in form %}
+      {{ field }}
+    {% endfor %}
+    <input type="submit" value="Filtrar">
+  </form>
+
+  {% if especies %}
+  <form method="GET" action="{% url 'mapa' %}">
+    <select name="especie">
+      <option value="">Selecione uma espécie</option>
+      {% for especie in especies %}
+        <option value="{{ especie.id }}" >{{ especie }}</option>
+      {% endfor %}
+    </select>
+    <input type="submit" value="Filtrar">
+  </form>
+  {% endif %}
+
+    <div style="margin-top: 1%">{{pontos.1.especie}}</div>
+
+  <script>
+      var map = L.map('map').setView([-15, -54], 4); // Defina a posição inicial do mapa e o nível de zoom
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      {% for ponto in pontos %}
+         var circle = L.circleMarker([{{ ponto.latitude }}, {{ ponto.longitude }}], {
+          color: 'blue',
+          fillColor: 'blue',
+          fillOpacity: 0.5,
+          radius: 3
+        }).addTo(map);
+        circle.bindPopup("{{ ponto.especie }}");
+      {% endfor %}
+  </script>
+
+{% endblock content %}

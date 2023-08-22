@@ -1,0 +1,14 @@
+{% extends 'global/base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>Registrar novo gênero</h2>
+  <div class="div-registro">
+    <form class="form-registro" method="POST" action="{% url 'create_genero' %}">
+      {% csrf_token %}
+      {{ form }}
+      <button type="submit">Criar</button>
+    </form>
+  </div>
+  
+{% endblock content %}
