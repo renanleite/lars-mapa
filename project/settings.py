@@ -82,11 +82,10 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'gis',
-        'USER': 'user001',
-        'PASSWORD': '123456789',
-        # 'PASSWORD': '123456789',
-        'HOST': 'localhost',
+        'NAME': 'map_gis',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': 'mapa-db.cbwioq7czbwn.sa-east-1.rds.amazonaws.com',
         'PORT': '5432'
     }
 }
