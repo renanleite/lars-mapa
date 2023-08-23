@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'map_gis',
         'USER': 'postgres',
         'PASSWORD': 'password',
-        'HOST': 'mapa-db.cbwioq7czbwn.sa-east-1.rds.amazonaws.com',
+        'HOST': 'mapa-public.cbwioq7czbwn.sa-east-1.rds.amazonaws.com',
         'PORT': '5432'
     }
 }
