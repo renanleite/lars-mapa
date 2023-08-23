@@ -127,8 +127,6 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
-import os
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # Default primary key field type
@@ -142,7 +140,3 @@ LEAFLET_CONFIG = {
     'TILES': 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     'ATTRIBUTION_PREFIX': 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
 }
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
